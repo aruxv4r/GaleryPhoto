@@ -32,7 +32,9 @@ const ALLOWED_MIME_TYPES = [
 const ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.mp4', '.mov', '.webm'];
 
 const app = express();
-const FRONTEND_PATH = path.join(__dirname, '..');
+const FRONTEND_PATH = __dirname;
+
+app.use(express.static(FRONTEND_PATH));
 
 app.use((req, res, next) => {
   console.log('[API] incoming', req.method, req.url);
@@ -47,14 +49,6 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   return res.sendFile(path.join(FRONTEND_PATH, 'index.html'));
-});
-
-app.get('/main.js', (req, res) => {
-  return res.sendFile(path.join(FRONTEND_PATH, 'main.js'));
-});
-
-app.get('/style.css', (req, res) => {
-  return res.sendFile(path.join(FRONTEND_PATH, 'style.css'));
 });
 
 let oauth2Client = null;
