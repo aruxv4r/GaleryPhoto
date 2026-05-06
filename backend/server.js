@@ -41,10 +41,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
 let oauth2Client = null;
 
 function createOAuthClient() {
@@ -451,7 +447,7 @@ app.use((req, res) => {
 
 const requireDriveUpload = !FOLDER_ID;
 if (requireDriveUpload) {
-  console.warn('Warning: GOOGLE_DRIVE_FOLDER_ID is not set. Uploads will be disabled.');
+  console.warn('Warning: GOOGLE_DRIVE_FOLDER_ID is not set. Uploads will be disabled, but existing image records can still be served.');
 }
 
 app.listen(PORT, () => {
