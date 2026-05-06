@@ -5,7 +5,7 @@ const intro   = document.getElementById('intro');
 const enterBtn = document.getElementById('enterBtn');
 const mainSite = document.getElementById('mainSite');
 const heroCards = document.getElementById('heroCards');
-const BACKEND_BASE_URL = 'http://127.0.0.1:3000';
+const BACKEND_BASE_URL = window.location.origin;
 const BACKEND_UPLOAD_URL = `${BACKEND_BASE_URL}/upload`;
 const BACKEND_IMAGES_URL = `${BACKEND_BASE_URL}/images`;
 
