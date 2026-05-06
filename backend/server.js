@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
 const { createClient } = require('@supabase/supabase-js');
+const WebSocket = require('ws');
 
 const PORT = process.env.PORT || 3000;
 const BACKEND_BASE_URL = process.env.BACKEND_BASE_URL || `http://127.0.0.1:${PORT}`;
@@ -15,7 +16,9 @@ const OAUTH_TOKEN_PATH = path.join(__dirname, 'oauth_token.json');
 const DB_PATH = path.join(__dirname, 'db.json');
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_KEY = process.env.SUPABASE_KEY || '';
-const supabase = SUPABASE_URL && SUPABASE_KEY ? createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+const supabase = SUPABASE_URL && SUPABASE_KEY
+  ? createClient(SUPABASE_URL, SUPABASE_KEY, { transport: WebSocket })
+  : null;
 const USE_SUPABASE = Boolean(supabase);
 const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
 const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
