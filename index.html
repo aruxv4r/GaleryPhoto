@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dY9+g7u3F+7G0FU1FsBeDn1qJ11bM2L8hDz+3nNPVbqQmG7OQWiY1q+Fq2XxXxQwOj0J0L7bmw3x+0f6BtdU6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- ===== INTRO SCREEN ===== -->
+  <div id="intro">
+    <div class="intro-content">
+      <div class="intro-line"></div>
+      <p class="intro-sub">selamat datang di</p>
+      <h1 class="intro-title">Our Family<br/><em>Gallery</em></h1>
+      <p class="intro-desc">Momen berharga yang selalu kita kenang bersama</p>
+      <button class="intro-btn" id="enterBtn">
+        <span>Masuk</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <div class="intro-line"></div>
+    </div>
+    <div class="intro-bg-deco">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- ===== MAIN SITE ===== -->
+  <div id="mainSite" class="hidden">
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-brand">
+        <i class="fa-solid fa-photo-film"></i>
+        <span>Family Gallery</span>
+      </div>
+      <div class="nav-links">
+        <a href="#gallery">Galeri</a>
+        <a href="#upload">Upload</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-text">
+        <p class="hero-sub">koleksi kenangan kami</p>
+        <h2>Setiap Momen<br/><em>Adalah Cerita</em></h2>
+        <p class="hero-desc">Simpan, bagikan, dan kenang bersama keluarga tercinta.</p>
+        <a href="#gallery" class="btn-primary">Lihat Galeri</a>
+      </div>
+      <div class="hero-cards" id="heroCards">
+        <div class="hero-card card-1"></div>
+        <div class="hero-card card-2"></div>
+        <div class="hero-card card-3"></div>
+      </div>
+      <div class="hero-deco">
+        <div class="deco-circle c1"></div>
+        <div class="deco-circle c2"></div>
+        <div class="deco-circle c3"></div>
+      </div>
+    </section>
+
+    <!-- FILTER -->
+    <section id="gallery">
+      <div class="section-header">
+        <p class="section-sub">koleksi kami</p>
+        <h2>Galeri <em>Keluarga</em></h2>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="photo">
+          <i class="fa-regular fa-image"></i> Foto
+        </button>
+        <button class="filter-btn" data-filter="video">
+          <i class="fa-regular fa-circle-play"></i> Video
+        </button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- item di-generate oleh JS -->
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <i class="fa-regular fa-images"></i>
+        <p>Belum ada foto atau video.<br/>Upload dulu yuk!</p>
+      </div>
+    </section>
+
+    <!-- UPLOAD SECTION -->
+    <section id="upload">
+      <div class="section-header">
+        <p class="section-sub">tambah kenangan</p>
+        <h2>Upload <em>File</em></h2>
+      </div>
+      <div class="upload-card">
+        <div class="drop-zone" id="dropZone">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <p>Drag & drop foto atau video di sini</p>
+          <span>atau</span>
+          <label class="btn-upload" for="fileInput">
+            Pilih File
+          </label>
+          <input type="file" id="fileInput" accept="image/*,video/*" multiple hidden/>
+          <p class="file-hint">JPG, PNG, GIF, MP4, MOV — maks 100MB per file</p>
+        </div>
+
+        <!-- Preview sebelum upload -->
+        <div class="preview-list" id="previewList"></div>
+        <div class="upload-error hidden" id="uploadError"></div>
+
+        <button class="btn-primary full" id="uploadBtn" disabled>
+          <i class="fa-solid fa-upload"></i> Upload ke Galeri
+        </button>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox hidden">
+      <button class="lb-close" id="lbClose"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lb-nav lb-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="lb-nav lb-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="lb-content" id="lbContent"></div>
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><i class="fa-solid fa-heart"></i> Dibuat dengan cinta untuk keluarga kami</p>
+    </footer>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

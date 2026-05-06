@@ -1,0 +1,8 @@
+# Ignore service account credentials
+credentials.json
+oauth_credentials.json
+oauth_token.json
+.env
+
+# Ignore local dependencies
+node_modules/

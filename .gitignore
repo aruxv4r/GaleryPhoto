@@ -1,0 +1,13 @@
+# Node modules and dependency caches
+backend/node_modules/
+node_modules/
+
+# Environment and secret files
+*.env
+backend/.env
+backend/credentials.json
+backend/oauth_credentials.json
+backend/oauth_token.json
+
+# Local system files
+.DS_Store
