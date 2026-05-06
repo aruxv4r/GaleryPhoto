@@ -44,6 +44,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', (req, res) => {
+  return res.json({ success: true, message: 'Backend is running', port: PORT });
+});
+
 let oauth2Client = null;
 
 function createOAuthClient() {
@@ -453,7 +457,7 @@ if (requireDriveUpload) {
   console.warn('Warning: GOOGLE_DRIVE_FOLDER_ID is not set. Uploads will be disabled, but existing image records can still be served.');
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Image upload backend running on http://localhost:${PORT}`);
   if (requireDriveUpload) {
     console.log('Upload route is disabled until GOOGLE_DRIVE_FOLDER_ID is configured.');
